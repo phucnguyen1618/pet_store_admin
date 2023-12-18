@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "Products": {
+      ".write": false,
+      ".read": true,
+    },
+    "Carts": {
+      ".write": true,
+      ".read": true,
+    },
+    "Orders": {
+      ".write": true,
+      ".read": true,
+    },
+    "Accounts": {
+      ".write": true,
+      ".read": true,
+    },
+    "BookingServices": {
+      ".write": true,
+      ".read": true,
+    },
+    "Services": {
+      ".write": false,
+      ".read": true,
+    }
+  }
+}
