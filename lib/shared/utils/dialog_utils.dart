@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_store_admin/models/doctor.dart';
@@ -110,6 +111,41 @@ class DialogUtils {
         onChoose: (dateTime) {
           onChoose(dateTime);
         },
+      ),
+    );
+  }
+
+  static void showChooseDateTimeDialog(Function(DateTime) onChoose) {
+    showDialog(
+      context: Get.context!,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.white,
+        insetPadding:
+            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        contentPadding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4.0),
+        ),
+        title: const Text(
+          'Chọn thời gian',
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: SizedBox(
+          height: Get.height * 0.5,
+          width: Get.width,
+          child: CupertinoDatePicker(
+            mode: CupertinoDatePickerMode.date,
+            dateOrder: DatePickerDateOrder.dmy,
+            initialDateTime: DateTime.now(),
+            onDateTimeChanged: (value) {
+              onChoose(value);
+            },
+          ),
+        ),
       ),
     );
   }

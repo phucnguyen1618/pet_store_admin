@@ -35,12 +35,16 @@ class AddProductController extends GetxController {
   RxDouble priceProduct = RxDouble(0.0);
   RxnString descProduct = RxnString(null);
   RxnString imageUrl = RxnString(null);
+  RxString title = RxString('Thêm sản phẩm');
   Rxn<File> imageProductFile = Rxn<File>(null);
 
   @override
   void onInit() {
     if (product != null) {
+      title.value = 'Chỉnh sửa sản phẩm';
       _fillProductData();
+    } else {
+      title.value = 'Thêm sản phẩm';
     }
     costController.addListener(() {
       if (costController.text.isNotEmpty) {

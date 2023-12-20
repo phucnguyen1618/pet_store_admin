@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pet_store_admin/shared/utils/dialog_utils.dart';
 
 import '../controller/revenue_statistics_controller.dart';
 import 'order_revenue.dart';
@@ -31,13 +32,26 @@ class RevenueStatisticsPage extends GetView<RevenueStatisticsController> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                DialogUtils.showChooseDateTimeDialog((value) {
+                  controller.chooseDateTime.value = value;
+                });
+              },
+              icon: const Icon(
+                Icons.event,
+                color: Colors.blue,
+              ))
+        ],
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          OrderRevenue(),
+          //Obx(() => Text('')),
+          Obx(() => OrderRevenue(dateTime: controller.chooseDateTime.value))
         ],
       ),
     );

@@ -17,14 +17,14 @@ class AddProductPage extends GetView<AddProductController> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: const Text(
-          'Thêm sản phẩm',
-          style: TextStyle(
+        title: Obx(() => Text(
+          controller.title.value,
+          style: const TextStyle(
             fontSize: 16.0,
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
-        ),
+        ),),
       ),
       body: SingleChildScrollView(
         child: Form(
